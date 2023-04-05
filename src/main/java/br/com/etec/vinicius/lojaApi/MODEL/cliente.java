@@ -1,16 +1,28 @@
 package br.com.etec.vinicius.lojaApi.MODEL;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "Cliente")
 public class cliente {
 
-    @OneToMany
-    @joincolumn(name="idcliente")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @OneToMany(mappedBy = "cliente")
+    private List<contas> contascliente = new ArrayList<>();
+
+    public List<contas> getContascliente() {
+        return contascliente;
+    }
+
+    public void setContascliente(List<contas> contascliente) {
+        this.contascliente = contascliente;
+    }
+
     private Long id;
     private String nomecliente;
 
