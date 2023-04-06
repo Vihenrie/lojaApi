@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Contas_Receber")
+@Table(name = "ContasReceber")
 public class contas {
 
     @Id
@@ -14,7 +14,6 @@ public class contas {
 
     private Long id;
     private LocalDate dataConta;
-    private Long idcliente;
     private BigDecimal valorConta;
     
     @ManyToOne
@@ -37,20 +36,20 @@ public class contas {
         this.dataConta = dataConta;
     }
 
-    public Long getIdcliente() {
-        return idcliente;
-    }
-
-    public void setIdcliente(Long idcliente) {
-        this.idcliente = idcliente;
-    }
-
     public BigDecimal getValorConta() {
         return valorConta;
     }
 
     public void setValorConta(BigDecimal valorConta) {
         this.valorConta = valorConta;
+    }
+
+    public cliente getCli() {
+        return cli;
+    }
+
+    public void setCli(cliente cli) {
+        this.cli = cli;
     }
 
     @Override
